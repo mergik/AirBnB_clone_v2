@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """This module defines a class to manage db storage for hbnb clone"""
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 from os import getenv
+
 
 class DBStorage:
     """Defines the DBStorage class."""
@@ -73,6 +73,6 @@ class DBStorage:
         """
         Base.metadata.create_all(self.__engine)
         session_factory = sessionmaker(bind=self.__engine,
-                                        expire_on_commit=False)
+                                       expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()

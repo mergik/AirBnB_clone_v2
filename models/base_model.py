@@ -7,6 +7,7 @@ from datetime import datetime
 
 Base = declarative_base()
 
+
 class BaseModel:
     """A base class for all hbnb models"""
     id = Column(String(60), nullable=False, primary_key=True)
@@ -45,8 +46,8 @@ class BaseModel:
         """Convert instance into dict format"""
         dictionary = {}
         dictionary.update(self.__dict__)
-        dictionary.update({'__class__':
-                          (str(type(self)).split('.')[-1]).split('\'')[0]})
+        dictionary.update({'__class__': (
+            str(type(self)).split('.')[-1]).split('\'')[0]})
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
         if '_sa_instance_state' in dictionary:
