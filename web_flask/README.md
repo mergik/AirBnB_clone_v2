@@ -1,0 +1,1 @@
+This directory implements the dynamic webpage design.
